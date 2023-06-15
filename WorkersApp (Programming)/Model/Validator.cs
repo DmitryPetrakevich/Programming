@@ -9,7 +9,6 @@ using System.Text.RegularExpressions;
 /// </summary>
 public static class Validator
 {
-    //TODO: поменять местами min-max
     /// <summary>
     /// Проверяет числовое значение на принадлежность промежутку.
     /// </summary>
@@ -18,7 +17,7 @@ public static class Validator
     /// <param name="min">Нижняя граница промежутка.</param>
     /// <exception cref="ArgumentException">Выдает сообщение об ошибке, если
     /// значение не принадлежит промежутку.</exception>
-    public static void AssertValueOnRange(int value, int max, int min)
+    public static void AssertValueOnRange(int value, int min, int max)
     {
         if (value < min || value > max)
         {

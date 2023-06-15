@@ -30,7 +30,6 @@ namespace Programming.Model.Classes
         {
         }
 
-        //TODO: Точка в конце комментария
         /// <summary>
         /// Создает экземпляр класса Contact.
         /// </summary>
