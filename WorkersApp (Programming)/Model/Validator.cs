@@ -9,6 +9,7 @@ using System.Text.RegularExpressions;
 /// </summary>
 public static class Validator
 {
+    //TODO: поменять местами min-max
     /// <summary>
     /// Проверяет числовое значение на принадлежность промежутку.
     /// </summary>

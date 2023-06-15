@@ -6,6 +6,7 @@
 /// </summary>
 public static class ServiseMethods
 {
+    //TODO: Переименовать
     /// <summary>
     /// Создает новый список имен для панели WorkersListBox.
     /// </summary>

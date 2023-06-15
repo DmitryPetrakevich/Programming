@@ -36,6 +36,7 @@ public partial class ObjectImplementationForm : Form
         worker.Salary = int.Parse(WorkersSalaryTextBox.Text);
     }
 
+    //TODO: В отдельный класс
     /// <summary>
     /// Сериализует объект и записывает его на файл json.
     /// Производит проверку существования рабочей папки и рабочего файла.

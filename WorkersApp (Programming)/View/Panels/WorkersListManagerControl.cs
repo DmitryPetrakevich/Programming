@@ -60,6 +60,7 @@ public partial class WorkersListManagerControl : UserControl
         SelectedWorkerControl.EmploymentTimePicker.MinDate = new DateTime(2005, 01, 01);
     }
 
+    //TODO: в Serializer
     /// <summary>
     /// Обработчик события WorkersListManager_Load.
     /// Производит загрузку данных из файла Json.
@@ -102,6 +103,7 @@ public partial class WorkersListManagerControl : UserControl
             WorkersListBox.Items.RemoveAt(WorkersListBox.SelectedIndex);
             WorkersList.Remove(_currentWorker);
 
+            //TODO: Использовать метод сериализации
             string serializedList = JsonConvert.SerializeObject(WorkersList);
             File.WriteAllText(ServiseMethods.GetPath(), serializedList);
         }
