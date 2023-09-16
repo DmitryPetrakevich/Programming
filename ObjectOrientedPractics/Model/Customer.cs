@@ -1,4 +1,5 @@
 ﻿using System;
+namespace ObjectOrientedPractics.Model;
 
 /// <summary>
 /// Summary description for Class1

@@ -1,4 +1,5 @@
 ﻿using System;
+namespace ObjectOrientedPractics.Services;
 
 /// <summary>
 /// Summary description for IdGenerator,
