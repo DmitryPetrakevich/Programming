@@ -30,15 +30,8 @@ public class Item
 
 		set
 		{
-			if(value.Length <= 200)
-			{
-				_name = value;
-			}
-
-            else
-            {
-                throw new ArgumentException("Не более 200 символов!");
-            }
+			ValueValidator.AssertStringOnLength(value, 200, "Name");
+			_name = value;
         }	
 	}
 
@@ -48,15 +41,7 @@ public class Item
 
 		set
 		{ 
-			if(value.Length <= 1000)
-			{
-				_info = value;
-			}
-
-			else
-			{
-				throw new ArgumentException("Не более 1000 символов!");
-			}
+			
 		}
 	}
 
