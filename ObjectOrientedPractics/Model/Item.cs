@@ -6,7 +6,7 @@ namespace ObjectOrientedPractics.Model;
 /// </summary>
 public class Item
 {
-	private readonly int _id;
+	private readonly int _id;1
 	private string _name;
 	private string _info;
 	private double _cost;
