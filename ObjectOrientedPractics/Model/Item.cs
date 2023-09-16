@@ -40,8 +40,9 @@ public class Item
 		get { return _info; }
 
 		set
-		{ 
-			
+		{
+			ValueValidator.AssertStringOnLength(value, 1000, "Info");
+			_info = value;
 		}
 	}
 
