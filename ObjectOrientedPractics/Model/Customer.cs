@@ -35,7 +35,7 @@ public class Customer
 				}
 				else
 				{
-					throw new ArgumentException("Не более 200 символов!!");
+					throw new ArgumentException("Не более 200 символов!");
 				}
 			}
 		}
