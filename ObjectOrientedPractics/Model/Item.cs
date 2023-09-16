@@ -13,7 +13,7 @@ public class Item
 	public Item(string name,string info,double cost)
 	{
 		_id = IdGenerator.GetNextId();
-		Name = name;
+		Name = name;1
 		Info = info;
 		Cost = cost;
 	}
