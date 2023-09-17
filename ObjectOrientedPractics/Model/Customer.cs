@@ -16,7 +16,7 @@ public class Customer
     private string _fullname;
 
     /// <summary>
-    /// Адрес доставки покупателя.
+    /// Адрес доставки покупателя
     /// </summary>
     private string _address;
 

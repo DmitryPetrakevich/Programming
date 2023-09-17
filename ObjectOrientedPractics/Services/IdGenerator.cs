@@ -16,3 +16,4 @@ public class IdGenerator
         return _nextId++;
     }
 }
+
