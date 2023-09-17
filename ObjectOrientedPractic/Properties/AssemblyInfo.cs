@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // связанных со сборкой.
-[assembly: AssemblyTitle("ObjectOrientedPractics")]
+[assembly: AssemblyTitle("ObjectOrientedPractic")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ObjectOrientedPractics")]
+[assembly: AssemblyProduct("ObjectOrientedPractic")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("99eafeb5-9202-4dae-9114-f36d0257a19d")]
+[assembly: Guid("2fd5505a-57a0-4f16-bba2-b001122eeda2")]
 
 // Сведения о версии сборки состоят из указанных ниже четырех значений:
 //

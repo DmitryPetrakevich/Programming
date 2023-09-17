@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ObjectOrientedPractics.Properties
+namespace ObjectOrientedPractic.Properties
 {
 
 

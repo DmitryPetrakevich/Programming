@@ -85,8 +85,16 @@ public class Item
 
         set
         {
-            ValueValidator.AssertStringOnLength(value, 100_000, "Cost");
-            _cost = value;
+            if(value >= 0 && value <= 1000)
+            {
+                _cost = value;
+            }
+            
+            else
+            {
+                throw new ArgumentException("Стоимость товара должна быть от 0 до 1000!");
+            }
+            
         }
     }
 }

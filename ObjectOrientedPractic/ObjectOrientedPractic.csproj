@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{99EAFEB5-9202-4DAE-9114-F36D0257A19D}</ProjectGuid>
+    <ProjectGuid>{2FD5505A-57A0-4F16-BBA2-B001122EEDA2}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>ObjectOrientedPractics</RootNamespace>
-    <AssemblyName>ObjectOrientedPractics</AssemblyName>
+    <RootNamespace>ObjectOrientedPractic</RootNamespace>
+    <AssemblyName>ObjectOrientedPractic</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -63,6 +63,7 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="obj\Debug\ObjectOrientedPractic.Properties.Resources.resources" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -72,7 +73,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="obj\Release\ObjectOrientedPractics.csproj.AssemblyReference.cache" />
+    <None Include="bin\Debug\ObjectOrientedPractic.exe.config" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\ObjectOrientedPractic.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\ObjectOrientedPractic.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\ObjectOrientedPractic.csproj.GenerateResource.cache" />
+    <None Include="obj\Debug\ObjectOrientedPractic.csproj.SuggestedBindingRedirects.cache" />
+    <None Include="obj\Release\ObjectOrientedPractic.csproj.AssemblyReference.cache" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -87,8 +95,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="bin\Debug\" />
+    <Content Include="bin\Debug\ObjectOrientedPractic.exe" />
+    <Content Include="bin\Debug\ObjectOrientedPractic.pdb" />
+    <Content Include="obj\Debug\ObjectOrientedPractic.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\ObjectOrientedPractic.exe" />
+    <Content Include="obj\Debug\ObjectOrientedPractic.pdb" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="bin\Release\" />
+    <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
