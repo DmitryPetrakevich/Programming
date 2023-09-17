@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace ObjectOrientedPractic.View.Tabs
 {
-    public partial class UserControl1 : UserControl
+    public partial class ItemsTab : UserControl
     {
-        public UserControl1()
+        public ItemsTab()
         {
             InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
