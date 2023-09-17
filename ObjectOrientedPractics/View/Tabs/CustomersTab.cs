@@ -20,7 +20,6 @@ namespace ObjectOrientedPractics.View.Tabs
 			}
 			base.Dispose(disposing);
 		}
-
 		private void InitializeComponent()
 		{
 			this.CustomersLabel = new Label();
