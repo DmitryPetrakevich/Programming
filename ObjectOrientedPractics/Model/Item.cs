@@ -1,69 +1,95 @@
 ﻿using System;
-namespace ObjectOrientedPractics.Model;
 
 /// <summary>
-/// Summary description for Item
+/// Класс представляющий товар.
 /// </summary>
 public class Item
 {
-	private readonly int _id;1
-	private string _name;
-	private string _info;
-	private double _cost;
+    /// <summary>
+    /// Уникальный номер товара.
+    /// </summary>
+    private readonly int _id;
 
-	public Item(string name,string info,double cost)
-	{
-		_id = IdGenerator.GetNextId();
-		Name = name;
-		Info = info;
-		Cost = cost;
-	}
+    /// <summary>
+    ///  Название товара.
+    /// </summary>
+    private string _name;
 
-	public int Id
-	{ 
-		get { return _id; }
-	}
+    /// <summary>
+    /// Описание товара.
+    /// </summary>
+    private string _info;
 
-	public string Name
-	{
-		get
-		{ return _name; }
+    /// <summary>
+    /// Стоимость товара.
+    /// </summary>
+    private double _cost;
 
-		set
-		{
-			ValueValidator.AssertStringOnLength(value, 200, "Name");
-			_name = value;
-        }	
-	}
+    /// <summary>
+    /// Конструктор для создания экземпляра товара.
+    /// </summary>
+    /// <param name="name">Название товара.</param>
+    /// <param name="info">Описание товара.</param>
+    /// <param name="cost">Стоимость товара.</param>
+    public Item(string name, string info, double cost)
+    {
+        _id = IdGenerator.GetNextId();
+        Name = name;
+        Info = info;
+        Cost = cost;
+    }
 
-	public string Info
-	{
-		get { return _info; }
+    /// <summary>
+    /// Получает уникалльный номер товара.
+    /// </summary>
+    public int Id
+    {
+        get { return _id; }
+    }
 
-		set
-		{
-			ValueValidator.AssertStringOnLength(value, 1000, "Info");
-			_info = value;
-		}
-	}
+    /// <summary>
+    /// Получает или устанавливает название товара.
+    /// </summary>
+    public string Name
+    {
+        get
+        { return _name; }
 
-	public double Cost
-	{
-		get { return _cost; }
+        set
+        {
+            ValueValidator.AssertStringOnLength(value, 200, "Name");
+            _name = value;
+        }
+    }
 
-		set
-		{
-			if(value >= 0 &&  value <= 1000)
-			{
-				_cost = value;
-			}
+    /// <summary>
+    /// Получает или устанавливает название товара.
+    /// </summary>
+    public string Info
+    {
+        get { return _info; }
 
-			else
-			{
-				throw new ArgumentException("Диапазон от 0 до 1000!");
-			}
-		}
-	}
+        set
+        {
+            ValueValidator.AssertStringOnLength(value, 1000, "Info");
+            _info = value;
+        }
+    }
+
+    /// <summary>
+    /// Получает или устанавливает стоимость товара.
+    /// </summary>
+    public double Cost
+    {
+        get { return _cost; }
+
+        set
+        {
+            ValueValidator.AssertStringOnLength(value, 100_000, "Cost");
+            _cost = value;
+        }
+    }
 }
+
 
 

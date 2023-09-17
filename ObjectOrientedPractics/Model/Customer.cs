@@ -1,70 +1,81 @@
 ﻿using System;
-namespace ObjectOrientedPractics.Model;
 
 /// <summary>
-/// Summary description for Class1
+/// Класс представляющий покупателя.
 /// </summary>
 public class Customer
 {
-	public class Customer
-	{
-		private readonly int _id;
-		private string _fullname;
-		private string _address;
+    /// <summary>
+    /// Уникальный номер покупателя.
+    /// </summary>
+    private readonly int _id;
 
-		public Customer(string fullname, string address)
-		{
-			_id = IdGenerator.GetNextId();
-			Fullname = fullname;
-			Address = address;
+    /// <summary>
+    /// Полное имя покупателя.
+    /// </summary>
+    private string _fullname;
+
+    /// <summary>
+    /// Адрес доставки покупателя.
+    /// </summary>
+    private string _address;
+
+    /// <summary>
+    /// Конструктор для создания экземпляра покупателя.
+    /// </summary>
+    /// <param name="fullname">Полное имя покупателя.</param>
+    /// <param name="address">Адрес доставки покупателя.</param>
+    public Customer(string fullname, string address)
+    {
+        _id = IdGenerator.GetNextId();
+        Fullname = fullname;
+        Address = address;
+    }
+
+    /// <summary>
+    /// Получает уникальный номер покупателя.
+    /// </summary>
+    public int Id
+    {
+        get { return _id; }
+    }
+
+    /// <summary>
+    /// Получает или устанавливает полное имя покупателя.
+    /// </summary>
+    public string Fullname
+    {
+        get { return _fullname; }
+
+        set
+        {
+            ValueValidator.AssertStringOnLength(value, 200, "FullName");
+            _fullname = value;
         }
+    }
 
-		public int Id
-		{
-			get { return _id;}
-		}
+    /// <summary>
+    /// Получает или устанавливает адрес доставки покупателя.
+    /// </summary>
+    public string Address
+    {
+        get { return _address; }
 
-		public string Fullname
-		{ 
-			get { return _fullname;}
-
-			set
-			{
-				if(value.Length <= 200)
-				{
-					_fullname = value;
-				}
-				else
-				{
-					throw new ArgumentException("Не более 200 символов!");
-				}
-			}
-		}
-
-		public string Address
-		{
-			get { return _address;}
-
-			set
-			{
-				if(value.Length <= 500)
-				{
-					_address = value;
-				}
-				else
-				{
-					throw new ArgumentException("Не более 500 символов");
-				}
-			}
-		}
-
-
-
-
-
-
-
-
-
+        set
+        {
+            ValueValidator.AssertStringOnLength(value, 500, "Address");
+            _address = value;
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
