@@ -1,81 +1,81 @@
-﻿using System;
+﻿using ObjectOrientedPractics.Services;
 
-/// <summary>
-/// Класс представляющий покупателя.
-/// </summary>
-public class Customer
+namespace ObjectOrientedPractics.Model
 {
     /// <summary>
-    /// Уникальный номер покупателя.
+    /// Класс покупателя.
     /// </summary>
-    private readonly int _id;
-
-    /// <summary>
-    /// Полное имя покупателя.
-    /// </summary>
-    private string _fullname;
-
-    /// <summary>
-    /// Адрес доставки покупателя.
-    /// </summary>
-    private string _address;
-
-    /// <summary>
-    /// Конструктор для создания экземпляра покупателя.
-    /// </summary>
-    /// <param name="fullname">Полное имя покупателя.</param>
-    /// <param name="address">Адрес доставки покупателя.</param>
-    public Customer(string fullname, string address)
+    class Customer
     {
-        _id = IdGenerator.GetNextId();
-        Fullname = fullname;
-        Address = address;
-    }
+        /// <summary>
+        /// Максимальный размер полного имени.
+        /// </summary>
+        private const int MaxFullname = 200;
 
-    /// <summary>
-    /// Получает уникальный номер покупателя.
-    /// </summary>
-    public int Id
-    {
-        get { return _id; }
-    }
+        /// <summary>
+        /// Максимальный размер адреса.
+        /// </summary>
+        private const int MaxAddress = 500;
 
-    /// <summary>
-    /// Получает или устанавливает полное имя покупателя.
-    /// </summary>
-    public string Fullname
-    {
-        get { return _fullname; }
+        private readonly int _id;
+        private string _fullname;
+        private string _address;
 
-        set
+        /// <summary>
+        /// Уникальный идентификатор покупателя.
+        /// </summary>
+        public int Id
         {
-            ValueValidator.AssertStringOnLength(value, 200, "FullName");
-            _fullname = value;
+            get
+            {
+                return _id;
+            }
         }
-    }
 
-    /// <summary>
-    /// Получает или устанавливает адрес доставки покупателя.
-    /// </summary>
-    public string Address
-    {
-        get { return _address; }
-
-        set
+        /// <summary>
+        /// Полное имя покупателя. Должно быть не больше <see cref="MaxFullname">MaxFullname</see>.
+        /// </summary>
+        public string Fullname
         {
-            ValueValidator.AssertStringOnLength(value, 500, "Address");
-            _address = value;
+            get
+            {
+                return _fullname;
+            }
+            set
+            {
+                ValueValidator.AssertStringOnLength(value, MaxFullname, nameof(Fullname));
+                _fullname = value;
+            }
+        }
+
+        /// <summary>
+        /// Адрес покупателя. Должно быть не больше <see cref="MaxAddress">MaxAddress</see>.
+        /// </summary>
+        public string Address
+        {
+            get
+            {
+                return _address;
+            }
+            set
+            {
+                string propertyName = nameof(Address); 
+                ValueValidator.AssertStringOnLength(value, MaxAddress, propertyName);
+                _address = value;
+            }
+        }
+
+        /// <summary>
+        /// Создаёт экземпляр класса <see cref="Customer"/>
+        /// </summary>
+        /// <param name="fullname">Полное имя покупателя. Должно быть не больше <see cref="MaxFullname">MaxFullname</see>.</param>
+        /// <param name="address">Адрес покупателя. Должно быть не больше <see cref="MaxAddress">MaxAddress</see>.</param>
+        /// <param name="id">Уникальный идентификатор покупателя. Класс не проверяет уникальность идентификатора.</param>
+        public Customer(string fullname, string address, int id)
+        {
+            Fullname = fullname;
+            Address = address;
+            _id = id;
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-

@@ -1,18 +1,30 @@
-﻿using System;
-
-/// <summary>
-/// Класс для генерации уникальных идкетификаторов.
-/// </summary>
-public class IdGenerator
+﻿namespace ObjectOrientedPractics.Services
 {
-    private static int _nextId = 1;
-
     /// <summary>
-    /// Получает следующий уникальный идентификатор.
+    /// Класс генератора уникального идентификатора.
     /// </summary>
-    /// <returns>Уникальный идентификатор.</returns>
-    public static int GetNextId()
+    class IdGenerator
     {
-        return _nextId++;
+        /// <summary>
+        /// Начальный номер идентификатора.
+        /// </summary>
+        private int _id;
+
+        /// <summary>
+        /// Получение следующего по порядку идентификатора.
+        /// </summary>
+        /// <returns>Идентификатор.</returns>
+        public int GetNextId()
+        {
+            return _id++;
+        }
+
+        /// <summary>
+        /// Создаёт экземпляр класса <see cref="IdGenerator"/>
+        /// </summary>
+        public IdGenerator()
+        {
+            _id = 0;
+        }
     }
 }

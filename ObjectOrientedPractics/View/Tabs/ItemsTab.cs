@@ -1,207 +1,140 @@
-﻿using System;
-using System.ComponentModel;
+﻿using ObjectOrientedPractics.Model;
+using ObjectOrientedPractics.Services;
+using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
-	public class ItemsTab : UserControl
-	{
-		public ItemsTab()
-		{
-			this.InitializeComponent();
-		}
+    /// <summary>
+    /// Элемент управления для списка товаров.
+    /// </summary>
+    partial class ItemsTab : UserControl
+    {
+        /// <summary>
+        /// Нынешний список покупателей.
+        /// </summary>
+        List<Item> _items;
 
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing && this.components != null)
-			{
-				this.components.Dispose();
-			}
-			base.Dispose(disposing);
-		}
+        /// <summary>
+        /// Экземпляр класса генератора идентификационного номера.
+        /// </summary>
+        IdGenerator idGenerator;
 
-		private void InitializeComponent()
-		{
-			this.ItemsListBox = new ListBox();
-			this.ItemsLabel = new Label();
-			this.tableLayoutPanel1 = new TableLayoutPanel();
-			this.AddButton = new Button();
-			this.RemoveButton = new Button();
-			this.splitContainer1 = new SplitContainer();
-			this.IdTextBox = new TextBox();
-			this.SelectedItemLabel = new Label();
-			this.IdLabel = new Label();
-			this.NameLabel = new Label();
-			this.NameTextBox = new TextBox();
-			this.DescriptionTextBox = new TextBox();
-			this.DescriptionLabel = new Label();
-			this.CostLabel = new Label();
-			this.CostTextBox = new TextBox();
-			this.tableLayoutPanel1.SuspendLayout();
-			((ISupportInitialize)this.splitContainer1).BeginInit();
-			this.splitContainer1.Panel1.SuspendLayout();
-			this.splitContainer1.Panel2.SuspendLayout();
-			this.splitContainer1.SuspendLayout();
-			base.SuspendLayout();
-			this.ItemsListBox.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right);
-			this.ItemsListBox.FormattingEnabled = true;
-			this.ItemsListBox.IntegralHeight = false;
-			this.ItemsListBox.Location = new Point(3, 21);
-			this.ItemsListBox.Name = "ItemsListBox";
-			this.ItemsListBox.Size = new Size(294, 434);
-			this.ItemsListBox.TabIndex = 0;
-			this.ItemsLabel.AutoSize = true;
-			this.ItemsLabel.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, 204);
-			this.ItemsLabel.Location = new Point(3, 5);
-			this.ItemsLabel.Name = "ItemsLabel";
-			this.ItemsLabel.Size = new Size(37, 13);
-			this.ItemsLabel.TabIndex = 1;
-			this.ItemsLabel.Text = "Items";
-			this.tableLayoutPanel1.Anchor = (AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right);
-			this.tableLayoutPanel1.ColumnCount = 3;
-			this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.33333f));
-			this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.33333f));
-			this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.33333f));
-			this.tableLayoutPanel1.Controls.Add(this.AddButton, 0, 0);
-			this.tableLayoutPanel1.Controls.Add(this.RemoveButton, 1, 0);
-			this.tableLayoutPanel1.Location = new Point(3, 458);
-			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.RowCount = 1;
-			this.tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100f));
-			this.tableLayoutPanel1.Size = new Size(294, 41);
-			this.tableLayoutPanel1.TabIndex = 2;
-			this.AddButton.Dock = DockStyle.Fill;
-			this.AddButton.Location = new Point(3, 3);
-			this.AddButton.Name = "AddButton";
-			this.AddButton.Size = new Size(92, 35);
-			this.AddButton.TabIndex = 0;
-			this.AddButton.Text = "Add";
-			this.AddButton.UseVisualStyleBackColor = true;
-			this.RemoveButton.Dock = DockStyle.Fill;
-			this.RemoveButton.Location = new Point(101, 3);
-			this.RemoveButton.Name = "RemoveButton";
-			this.RemoveButton.Size = new Size(92, 35);
-			this.RemoveButton.TabIndex = 1;
-			this.RemoveButton.Text = "Remove";
-			this.RemoveButton.UseVisualStyleBackColor = true;
-			this.splitContainer1.Dock = DockStyle.Fill;
-			this.splitContainer1.Location = new Point(0, 0);
-			this.splitContainer1.Name = "splitContainer1";
-			this.splitContainer1.Panel1.Controls.Add(this.ItemsLabel);
-			this.splitContainer1.Panel1.Controls.Add(this.tableLayoutPanel1);
-			this.splitContainer1.Panel1.Controls.Add(this.ItemsListBox);
-			this.splitContainer1.Panel1MinSize = 200;
-			this.splitContainer1.Panel2.BackColor = Color.White;
-			this.splitContainer1.Panel2.Controls.Add(this.CostLabel);
-			this.splitContainer1.Panel2.Controls.Add(this.CostTextBox);
-			this.splitContainer1.Panel2.Controls.Add(this.DescriptionTextBox);
-			this.splitContainer1.Panel2.Controls.Add(this.DescriptionLabel);
-			this.splitContainer1.Panel2.Controls.Add(this.NameTextBox);
-			this.splitContainer1.Panel2.Controls.Add(this.NameLabel);
-			this.splitContainer1.Panel2.Controls.Add(this.IdLabel);
-			this.splitContainer1.Panel2.Controls.Add(this.SelectedItemLabel);
-			this.splitContainer1.Panel2.Controls.Add(this.IdTextBox);
-			this.splitContainer1.Panel2MinSize = 200;
-			this.splitContainer1.Size = new Size(733, 502);
-			this.splitContainer1.SplitterDistance = 300;
-			this.splitContainer1.TabIndex = 3;
-			this.IdTextBox.Location = new Point(45, 31);
-			this.IdTextBox.Name = "IdTextBox";
-			this.IdTextBox.Size = new Size(122, 20);
-			this.IdTextBox.TabIndex = 0;
-			this.SelectedItemLabel.AutoSize = true;
-			this.SelectedItemLabel.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, 204);
-			this.SelectedItemLabel.Location = new Point(3, 5);
-			this.SelectedItemLabel.Name = "SelectedItemLabel";
-			this.SelectedItemLabel.Size = new Size(85, 13);
-			this.SelectedItemLabel.TabIndex = 1;
-			this.SelectedItemLabel.Text = "Selected Item";
-			this.IdLabel.AutoSize = true;
-			this.IdLabel.Location = new Point(3, 34);
-			this.IdLabel.Name = "IdLabel";
-			this.IdLabel.Size = new Size(21, 13);
-			this.IdLabel.TabIndex = 2;
-			this.IdLabel.Text = "ID:";
-			this.NameLabel.AutoSize = true;
-			this.NameLabel.Location = new Point(3, 85);
-			this.NameLabel.Name = "NameLabel";
-			this.NameLabel.Size = new Size(38, 13);
-			this.NameLabel.TabIndex = 3;
-			this.NameLabel.Text = "Name:";
-			this.NameTextBox.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right);
-			this.NameTextBox.Location = new Point(6, 101);
-			this.NameTextBox.Multiline = true;
-			this.NameTextBox.Name = "NameTextBox";
-			this.NameTextBox.Size = new Size(420, 83);
-			this.NameTextBox.TabIndex = 4;
-			this.DescriptionTextBox.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right);
-			this.DescriptionTextBox.Location = new Point(6, 208);
-			this.DescriptionTextBox.Multiline = true;
-			this.DescriptionTextBox.Name = "DescriptionTextBox";
-			this.DescriptionTextBox.Size = new Size(420, 152);
-			this.DescriptionTextBox.TabIndex = 6;
-			this.DescriptionLabel.AutoSize = true;
-			this.DescriptionLabel.Location = new Point(3, 192);
-			this.DescriptionLabel.Name = "DescriptionLabel";
-			this.DescriptionLabel.Size = new Size(63, 13);
-			this.DescriptionLabel.TabIndex = 5;
-			this.DescriptionLabel.Text = "Description:";
-			this.CostLabel.AutoSize = true;
-			this.CostLabel.Location = new Point(3, 60);
-			this.CostLabel.Name = "CostLabel";
-			this.CostLabel.Size = new Size(31, 13);
-			this.CostLabel.TabIndex = 8;
-			this.CostLabel.Text = "Cost:";
-			this.CostTextBox.Location = new Point(45, 57);
-			this.CostTextBox.Name = "CostTextBox";
-			this.CostTextBox.Size = new Size(122, 20);
-			this.CostTextBox.TabIndex = 7;
-			base.AutoScaleDimensions = new SizeF(6f, 13f);
-			base.AutoScaleMode = AutoScaleMode.Font;
-			base.Controls.Add(this.splitContainer1);
-			base.Name = "ItemsTab";
-			base.Size = new Size(733, 502);
-			this.tableLayoutPanel1.ResumeLayout(false);
-			this.splitContainer1.Panel1.ResumeLayout(false);
-			this.splitContainer1.Panel1.PerformLayout();
-			this.splitContainer1.Panel2.ResumeLayout(false);
-			this.splitContainer1.Panel2.PerformLayout();
-			((ISupportInitialize)this.splitContainer1).EndInit();
-			this.splitContainer1.ResumeLayout(false);
-			base.ResumeLayout(false);
-		}
+        /// <summary>
+        /// Биндер данных для списка
+        /// </summary>
+        BindingSource binding;
 
-		private IContainer components;
+        public ItemsTab()
+        {
+            InitializeComponent();
 
-		private ListBox ItemsListBox;
+            _items = new List<Item>();
+            binding = new BindingSource(); // создание экземпляра биндера
+            idGenerator = new IdGenerator();
 
-		private Label ItemsLabel;
+            binding.DataSource = _items; // связка биндера и списка товаров
 
-		private TableLayoutPanel tableLayoutPanel1;
+            ItemsListBox.DataSource = binding; // связка ListBox и биндера
+            ItemsListBox.DisplayMember = "Name";
+            ItemsListBox.ValueMember = "Id";
+            binding.ResetBindings(false); // обновление данных в ListBox при помощи биндера
+        }
 
-		private Button AddButton;
+        /// <summary>
+        /// Добавление шаблона товара.
+        /// </summary>
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            _items.Add(new Item("Item", "Info", 1, idGenerator.GetNextId()));
+            binding.ResetBindings(false);
+            ItemsListBox.SelectedIndex = _items.Count - 1;
+        }
 
-		private Button RemoveButton;
+        /// <summary>
+        /// Удаление покупателя из ListBox и списка
+        /// </summary>
+        private void RemoveButton_Click(object sender, EventArgs e)
+        {
+            if (ItemsListBox.SelectedItem != null) // если выбран товар в ListBox
+            {
+                _items.RemoveAt(ItemsListBox.SelectedIndex); // удалить его по индексу
+                binding.ResetBindings(false);
+            }
+        }
 
-		private SplitContainer splitContainer1;
 
-		private Label CostLabel;
+        /// <summary>
+        /// Обработчик события изменения текста в текстбоксе цены товара.
+        /// </summary>
+        private void CostTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try // алгоритм подсветки текстбокса при вводе невалидных данных
+            {
+                if (ItemsListBox.SelectedValue != null) // при валидных вводных даных записывает их в
+                {                                       // выбранного пользователя 
+                    ((Item)ItemsListBox.SelectedItem).Cost = Convert.ToDouble(CostTextBox.Text);
+                }
+                CostTextBox.BackColor = Color.White;
+            }
+            catch (Exception)
+            {
+                CostTextBox.BackColor = Color.LightPink;
+            }
+        }
 
-		private TextBox CostTextBox;
+        /// <summary>
+        /// Обработчик события изменения текста в текстбоксе названии товара.
+        /// </summary>
+        private void NameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ItemsListBox.SelectedValue != null)
+                {
+                    ((Item)ItemsListBox.SelectedItem).Name = NameTextBox.Text;
+                }
+                NameTextBox.BackColor = Color.White;
+            }
+            catch (Exception)
+            {
+                NameTextBox.BackColor = Color.LightPink;
+            }
+        }
 
-		private TextBox DescriptionTextBox;
+        /// <summary>
+        /// Обработчик события изменения текста в текстбоксе описании товара.
+        /// </summary>
+        private void DescriptionTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ItemsListBox.SelectedValue != null)
+                {
+                    ((Item)ItemsListBox.SelectedItem).Info = DescriptionTextBox.Text;
+                }
+                DescriptionTextBox.BackColor = Color.White;
+            }
+            catch (Exception)
+            {
+                DescriptionTextBox.BackColor = Color.LightPink;
+            }
+        }
 
-		private Label DescriptionLabel;
-
-		private TextBox NameTextBox;
-
-		private Label NameLabel;
-
-		private Label IdLabel;
-
-		private Label SelectedItemLabel;
-
-		private TextBox IdTextBox;
-	}
+        /// <summary>
+        /// Обработчик события перевыбора элемента в ListBox
+        /// </summary>
+        private void ItemsListBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (ItemsListBox.SelectedValue != null) // если выбран товар в ListBox
+            {                                       // копирование данных в текстбоксы
+                IdTextBox.Text = ((Item)ItemsListBox.SelectedItem).Id.ToString(); 
+                CostTextBox.Text = ((Item)ItemsListBox.SelectedItem).Cost.ToString();
+                NameTextBox.Text = ((Item)ItemsListBox.SelectedItem).Name;
+                DescriptionTextBox.Text = ((Item)ItemsListBox.SelectedItem).Info;
+            }
+        }
+    }
 }
