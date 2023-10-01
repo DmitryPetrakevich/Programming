@@ -54,8 +54,7 @@ namespace ObjectOrientedPractics.Model
             }
             set
             {
-                string propertyName = nameof(Name);
-                ValueValidator.AssertStringOnLength(value, MaxNameLength, propertyName);
+                ValueValidator.AssertStringOnLength(value, MaxNameLength, nameof(Name));
                 _name = value;
             }
         }
@@ -71,8 +70,7 @@ namespace ObjectOrientedPractics.Model
             }
             set
             {
-                string propertyName = nameof(Info);
-                ValueValidator.AssertStringOnLength(value, MaxInfoLength, propertyName);
+                ValueValidator.AssertStringOnLength(value, MaxInfoLength, nameof(Info));
                 _info = value;
             }
         }
@@ -88,8 +86,7 @@ namespace ObjectOrientedPractics.Model
             }
             set
             {
-                string propertyName = nameof(Cost);
-                ValueValidator.AssertDoubleOnRange(value, MinCost, MaxCost, propertyName);
+                ValueValidator.AssertDoubleOnRange(value, MinCost, MaxCost, nameof(Cost));
                 _cost = value;
             }
         }

@@ -59,8 +59,7 @@ namespace ObjectOrientedPractics.Model
             }
             set
             {
-                string propertyName = nameof(Address); 
-                ValueValidator.AssertStringOnLength(value, MaxAddress, propertyName);
+                ValueValidator.AssertStringOnLength(value, MaxAddress, nameof(Address));
                 _address = value;
             }
         }
