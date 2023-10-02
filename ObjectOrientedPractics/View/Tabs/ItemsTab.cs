@@ -32,15 +32,15 @@ namespace ObjectOrientedPractics.View.Tabs
             InitializeComponent();
 
             _items = new List<Item>();
-            binding = new BindingSource(); // создание экземпляра биндера
+            binding = new BindingSource(); 
             idGenerator = new IdGenerator();
 
-            binding.DataSource = _items; // связка биндера и списка товаров
+            binding.DataSource = _items; 
 
-            ItemsListBox.DataSource = binding; // связка ListBox и биндера
+            ItemsListBox.DataSource = binding; 
             ItemsListBox.DisplayMember = "Name";
             ItemsListBox.ValueMember = "Id";
-            binding.ResetBindings(false); // обновление данных в ListBox при помощи биндера
+            binding.ResetBindings(false); 
         }
 
         /// <summary>
@@ -58,9 +58,9 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void RemoveButton_Click(object sender, EventArgs e)
         {
-            if (ItemsListBox.SelectedItem != null) // если выбран товар в ListBox
+            if (ItemsListBox.SelectedItem != null) 
             {
-                _items.RemoveAt(ItemsListBox.SelectedIndex); // удалить его по индексу
+                _items.RemoveAt(ItemsListBox.SelectedIndex); 
                 binding.ResetBindings(false);
             }
         }
@@ -71,10 +71,10 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void CostTextBox_TextChanged(object sender, EventArgs e)
         {
-            try // алгоритм подсветки текстбокса при вводе невалидных данных
+            try 
             {
-                if (ItemsListBox.SelectedValue != null) // при валидных вводных даных записывает их в
-                {                                       // выбранного пользователя 
+                if (ItemsListBox.SelectedValue != null) 
+                {                                       
                     ((Item)ItemsListBox.SelectedItem).Cost = Convert.ToDouble(CostTextBox.Text);
                 }
                 CostTextBox.BackColor = Color.White;
@@ -128,8 +128,8 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void ItemsListBox_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (ItemsListBox.SelectedValue != null) // если выбран товар в ListBox
-            {                                       // копирование данных в текстбоксы
+            if (ItemsListBox.SelectedValue != null) 
+            {                                       
                 IdTextBox.Text = ((Item)ItemsListBox.SelectedItem).Id.ToString(); 
                 CostTextBox.Text = ((Item)ItemsListBox.SelectedItem).Cost.ToString();
                 NameTextBox.Text = ((Item)ItemsListBox.SelectedItem).Name;
