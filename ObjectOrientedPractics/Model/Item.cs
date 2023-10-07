@@ -106,4 +106,6 @@ namespace ObjectOrientedPractics.Model
             _id = id;
         }
     }
+
+
 }
