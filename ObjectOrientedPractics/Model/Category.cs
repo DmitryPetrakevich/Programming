@@ -1,5 +1,8 @@
 ﻿namespace ObjectOrientedPractics.Model
 {
+    /// <summary>
+    /// Хранит данные о категориях.
+    /// </summary>
     public enum Category
     {
         Clothes,

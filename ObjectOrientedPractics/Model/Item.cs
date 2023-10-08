@@ -7,6 +7,7 @@ namespace ObjectOrientedPractics.Model
     /// </summary>
     class Item
     {
+        Category Category { get; set; } 
         /// <summary>
         /// Максимальный размер названия товара.
         /// </summary>
@@ -98,12 +99,13 @@ namespace ObjectOrientedPractics.Model
         /// <param name="info">Описание товара. Должно быть не больше <see cref="MaxInfoLength">MaxInfoLength</see> символов.</param>
         /// <param name="cost">Цена товара. Должна быть от <see cref="MinCost">MinCost</see> до <see cref="MaxCost">MaxCost</see>.
         /// <param name="id">Уникальный номер товара. Класс не проверяет уникальность номера</param>
-        public Item(string name, string info, double cost, int id)
+        public Item(string name, string info, double cost, int id, Category category)
         {
             Name = name;
             Info = info;
             Cost = cost;
             _id = id;
+            Category = category;
         }
     }
 

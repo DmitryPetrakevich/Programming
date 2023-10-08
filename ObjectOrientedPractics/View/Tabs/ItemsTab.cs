@@ -48,7 +48,7 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void AddButton_Click(object sender, EventArgs e)
         {
-            _items.Add(new Item("Item", "Info", 1, idGenerator.GetNextId()));
+            _items.Add(new Item("Item", "Info", 1, idGenerator.GetNextId(), Category.Clothes));
             binding.ResetBindings(false);
             ItemsListBox.SelectedIndex = _items.Count - 1;
         }
