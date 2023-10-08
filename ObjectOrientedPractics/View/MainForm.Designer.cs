@@ -1,4 +1,5 @@
-﻿
+﻿using ObjectOrientedPractics.Model;
+
 namespace ObjectOrientedPractics
 {
     partial class MainForm
@@ -22,7 +23,6 @@ namespace ObjectOrientedPractics
         }
 
         
-
         #region Код, автоматически созданный конструктором форм Windows
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace ObjectOrientedPractics
             this.MainTabControl.Location = new System.Drawing.Point(0, 0);
             this.MainTabControl.Name = "MainTabControl";
             this.MainTabControl.SelectedIndex = 0;
-            this.MainTabControl.Size = new System.Drawing.Size(800, 450);
+            this.MainTabControl.Size = new System.Drawing.Size(800, 560);
             this.MainTabControl.TabIndex = 0;
             // 
             // ItemsTabPage
@@ -63,14 +63,6 @@ namespace ObjectOrientedPractics
             this.ItemsTabPage.Text = "Items";
             this.ItemsTabPage.UseVisualStyleBackColor = true;
             // 
-            // ItemsTab
-            // 
-            this.ItemsTab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ItemsTab.Location = new System.Drawing.Point(3, 3);
-            this.ItemsTab.Name = "ItemsTab";
-            this.ItemsTab.Size = new System.Drawing.Size(786, 418);
-            this.ItemsTab.TabIndex = 0;
-            // 
             // CustomersTabPage
             // 
             this.CustomersTabPage.Controls.Add(this.CustomersTab);
@@ -82,19 +74,11 @@ namespace ObjectOrientedPractics
             this.CustomersTabPage.Text = "Customers";
             this.CustomersTabPage.UseVisualStyleBackColor = true;
             // 
-            // CustomersTab
-            // 
-            this.CustomersTab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CustomersTab.Location = new System.Drawing.Point(3, 3);
-            this.CustomersTab.Name = "CustomersTab";
-            this.CustomersTab.Size = new System.Drawing.Size(786, 418);
-            this.CustomersTab.TabIndex = 0;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 560);
             this.Controls.Add(this.MainTabControl);
             this.Name = "MainForm";
             this.Text = "Object Oriented Practics";

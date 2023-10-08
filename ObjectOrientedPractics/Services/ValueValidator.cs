@@ -23,7 +23,7 @@ namespace ObjectOrientedPractics.Services
         }
 
         /// <summary>
-        /// Проверяет, что число не выходит из диапазона.
+        /// Проверяет, что число типа double не выходит из диапазона.
         /// </summary>
         /// <param name="value">Проверяемое число.</param>
         /// <param name="min">Минимально допустимое число.</param>
@@ -31,6 +31,14 @@ namespace ObjectOrientedPractics.Services
         /// <param name="propertyName">Имя свойства или объекта, которое подлежит проверке.</param>
         /// <exception cref="ArgumentException"></exception>
         public static void AssertDoubleOnRange(double value, double min, double max, string propertyName)
+        {
+            if (value > max || value < min)
+            {
+                throw new ArgumentException($"{propertyName} должен быть больше {min} и меньше {max}", propertyName);
+            }
+        }
+
+        public static void AssertIntOnRange(int value, int min, int max, string propertyName)
         {
             if (value > max || value < min)
             {

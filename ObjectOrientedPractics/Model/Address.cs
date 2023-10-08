@@ -1,14 +1,9 @@
 ﻿using ObjectOrientedPractics.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ObjectOrientedPractics.Model
 {
-    internal class Address
-    {
+	internal class Address
+	{
         /// <summary>
         /// Минимальное число для почтового индекса.
         /// </summary>
@@ -78,18 +73,18 @@ namespace ObjectOrientedPractics.Model
         /// Возвращает и задаёт почтовый индекс. Должен быть шестизначным числом.
         /// </summary>
 		public int Index
-        {
-            get
-            {
-                return _index;
-            }
-            set
-            {
+		{
+			get
+			{
+				return _index;
+			}
+			set
+			{
                 string propertyName = nameof(Index);
-                ValueValidator.AssertDoubleOnRange(value, MinIndex, MaxIndex, propertyName);
+                ValueValidator.AssertIntOnRange(value, MinIndex, MaxIndex, propertyName);
                 _index = value;
             }
-        }
+		}
 
         /// <summary>
         /// Возвращает и задаёт страну. Должна быть меньше <see cref="MaxCountryLength">MaxCountryLength</see> символов.
@@ -209,5 +204,4 @@ namespace ObjectOrientedPractics.Model
         }
 
     }
-
 }

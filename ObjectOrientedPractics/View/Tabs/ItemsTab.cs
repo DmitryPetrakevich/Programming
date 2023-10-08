@@ -3,6 +3,7 @@ using ObjectOrientedPractics.Services;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ObjectOrientedPractics.View.Tabs
@@ -27,20 +28,36 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         BindingSource binding;
 
+        public List<Item> Items
+        {
+            get
+            {
+                return _items;
+            }
+            set
+            {
+                _items = value;
+                binding.DataSource = _items; // связка биндера и списка товаров
+                binding.ResetBindings(false); // обновление данных в ListBox
+            }
+        }
+
         public ItemsTab()
         {
             InitializeComponent();
 
             _items = new List<Item>();
-            binding = new BindingSource(); 
+
+            binding = new BindingSource(); // создание экземпляра биндера
             idGenerator = new IdGenerator();
 
-            binding.DataSource = _items; 
+            CategoryComboBox.DataSource = Enum.GetValues(typeof(Category)); // связка ComboBox и перечисления 
+            binding.DataSource = _items; // связка биндера и списка товаров
 
-            ItemsListBox.DataSource = binding; 
+            ItemsListBox.DataSource = binding; // связка ListBox и биндера
             ItemsListBox.DisplayMember = "Name";
             ItemsListBox.ValueMember = "Id";
-            binding.ResetBindings(false); 
+            binding.ResetBindings(false); // обновление данных в ListBox при помощи биндера
         }
 
         /// <summary>
@@ -48,7 +65,7 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void AddButton_Click(object sender, EventArgs e)
         {
-            _items.Add(new Item("Item", "Info", 1, idGenerator.GetNextId(), Category.Clothes));
+            _items.Add(new Item("Placeholder", "Placeholder", 0, idGenerator.GetNextId(), 0));
             binding.ResetBindings(false);
             ItemsListBox.SelectedIndex = _items.Count - 1;
         }
@@ -58,9 +75,9 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void RemoveButton_Click(object sender, EventArgs e)
         {
-            if (ItemsListBox.SelectedItem != null) 
+            if (ItemsListBox.SelectedItem != null) // если выбран товар в ListBox
             {
-                _items.RemoveAt(ItemsListBox.SelectedIndex); 
+                _items.RemoveAt(ItemsListBox.SelectedIndex); // удалить его по индексу
                 binding.ResetBindings(false);
             }
         }
@@ -71,10 +88,10 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void CostTextBox_TextChanged(object sender, EventArgs e)
         {
-            try 
+            try // алгоритм подсветки текстбокса при вводе невалидных данных
             {
-                if (ItemsListBox.SelectedValue != null) 
-                {                                       
+                if (ItemsListBox.SelectedValue != null) // при валидных вводных даных записывает их в
+                {                                       // выбранного пользователя 
                     ((Item)ItemsListBox.SelectedItem).Cost = Convert.ToDouble(CostTextBox.Text);
                 }
                 CostTextBox.BackColor = Color.White;
@@ -128,37 +145,22 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void ItemsListBox_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (ItemsListBox.SelectedValue != null) 
-            {                                       
+            if (ItemsListBox.SelectedValue != null) // если выбран товар в ListBox
+            {                                       // копирование данных в текстбоксы и комбобокс
                 IdTextBox.Text = ((Item)ItemsListBox.SelectedItem).Id.ToString(); 
                 CostTextBox.Text = ((Item)ItemsListBox.SelectedItem).Cost.ToString();
                 NameTextBox.Text = ((Item)ItemsListBox.SelectedItem).Name;
                 DescriptionTextBox.Text = ((Item)ItemsListBox.SelectedItem).Info;
+                CategoryComboBox.SelectedItem = ((Item)ItemsListBox.SelectedItem).Category;
             }
         }
 
-        
         private void CategoryComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
             if (ItemsListBox.SelectedItem != null)
             {
                 ((Item)ItemsListBox.SelectedItem).Category = (Category)CategoryComboBox.SelectedItem;
             }
-        }
-
-        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void ItemsListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DescriptionLabel_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

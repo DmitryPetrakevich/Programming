@@ -12,14 +12,9 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         private const int MaxFullname = 200;
 
-        /// <summary>
-        /// Максимальный размер адреса.
-        /// </summary>
-        private const int MaxAddress = 500;
-
         private readonly int _id;
         private string _fullname;
-        private string _address;
+        private Address _address;
 
         /// <summary>
         /// Уникальный идентификатор покупателя.
@@ -43,15 +38,16 @@ namespace ObjectOrientedPractics.Model
             }
             set
             {
-                ValueValidator.AssertStringOnLength(value, MaxFullname, nameof(Fullname));
+                string propertyName = nameof(Fullname); // получение имени свойства
+                ValueValidator.AssertStringOnLength(value, MaxFullname, propertyName);
                 _fullname = value;
             }
         }
 
         /// <summary>
-        /// Адрес покупателя. Должно быть не больше <see cref="MaxAddress">MaxAddress</see>.
+        /// Адрес покупателя</see>.
         /// </summary>
-        public string Address
+        public Address Address
         {
             get
             {
@@ -59,7 +55,6 @@ namespace ObjectOrientedPractics.Model
             }
             set
             {
-                ValueValidator.AssertStringOnLength(value, MaxAddress, nameof(Address));
                 _address = value;
             }
         }
@@ -68,9 +63,10 @@ namespace ObjectOrientedPractics.Model
         /// Создаёт экземпляр класса <see cref="Customer"/>
         /// </summary>
         /// <param name="fullname">Полное имя покупателя. Должно быть не больше <see cref="MaxFullname">MaxFullname</see>.</param>
-        /// <param name="address">Адрес покупателя. Должно быть не больше <see cref="MaxAddress">MaxAddress</see>.</param>
+        /// <param name="address">Адрес покупателя. Должно быть экземпляром класса 
+        ///     <see cref="ObjectOrientedPractics.Model.Address">Address</see>.</param>
         /// <param name="id">Уникальный идентификатор покупателя. Класс не проверяет уникальность идентификатора.</param>
-        public Customer(string fullname, string address, int id)
+        public Customer(string fullname, Address address, int id)
         {
             Fullname = fullname;
             Address = address;

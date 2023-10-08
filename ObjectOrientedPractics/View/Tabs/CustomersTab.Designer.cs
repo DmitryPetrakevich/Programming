@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-using System.Drawing;
-using System.Windows.Forms;
+﻿using ObjectOrientedPractics.View.Controls;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
@@ -32,6 +30,7 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void InitializeComponent()
         {
+            ObjectOrientedPractics.Model.Address address1 = new ObjectOrientedPractics.Model.Address();
             this.CustomersLabel = new System.Windows.Forms.Label();
             this.ButtonsTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.AddButon = new System.Windows.Forms.Button();
@@ -39,13 +38,12 @@ namespace ObjectOrientedPractics.View.Tabs
             this.CustomersListBox = new System.Windows.Forms.ListBox();
             this.MainSplitContainer = new System.Windows.Forms.SplitContainer();
             this.SecondarySplitContainer = new System.Windows.Forms.SplitContainer();
+            this.addressControl1 = new ObjectOrientedPractics.View.Controls.AddressControl();
             this.SelectedCustomerLabel = new System.Windows.Forms.Label();
             this.FullNameLabel = new System.Windows.Forms.Label();
             this.IdTextBox = new System.Windows.Forms.TextBox();
             this.FullNameTextBox = new System.Windows.Forms.TextBox();
             this.IdLabel = new System.Windows.Forms.Label();
-            this.AddressTextBox = new System.Windows.Forms.TextBox();
-            this.AddressLabel = new System.Windows.Forms.Label();
             this.ButtonsTableLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainSplitContainer)).BeginInit();
             this.MainSplitContainer.Panel1.SuspendLayout();
@@ -80,7 +78,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.ButtonsTableLayout.Name = "ButtonsTableLayout";
             this.ButtonsTableLayout.RowCount = 1;
             this.ButtonsTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.ButtonsTableLayout.Size = new System.Drawing.Size(315, 41);
+            this.ButtonsTableLayout.Size = new System.Drawing.Size(325, 41);
             this.ButtonsTableLayout.TabIndex = 2;
             // 
             // AddButon
@@ -88,7 +86,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.AddButon.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AddButon.Location = new System.Drawing.Point(3, 3);
             this.AddButon.Name = "AddButon";
-            this.AddButon.Size = new System.Drawing.Size(99, 35);
+            this.AddButon.Size = new System.Drawing.Size(102, 35);
             this.AddButon.TabIndex = 0;
             this.AddButon.Text = "Add";
             this.AddButon.UseVisualStyleBackColor = true;
@@ -97,9 +95,9 @@ namespace ObjectOrientedPractics.View.Tabs
             // RemoveButton
             // 
             this.RemoveButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RemoveButton.Location = new System.Drawing.Point(108, 3);
+            this.RemoveButton.Location = new System.Drawing.Point(111, 3);
             this.RemoveButton.Name = "RemoveButton";
-            this.RemoveButton.Size = new System.Drawing.Size(99, 35);
+            this.RemoveButton.Size = new System.Drawing.Size(102, 35);
             this.RemoveButton.TabIndex = 1;
             this.RemoveButton.Text = "Remove";
             this.RemoveButton.UseVisualStyleBackColor = true;
@@ -114,7 +112,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.CustomersListBox.IntegralHeight = false;
             this.CustomersListBox.Location = new System.Drawing.Point(3, 21);
             this.CustomersListBox.Name = "CustomersListBox";
-            this.CustomersListBox.Size = new System.Drawing.Size(315, 465);
+            this.CustomersListBox.Size = new System.Drawing.Size(325, 465);
             this.CustomersListBox.TabIndex = 0;
             this.CustomersListBox.SelectedValueChanged += new System.EventHandler(this.CustomersListBox_SelectedValueChanged);
             // 
@@ -136,8 +134,8 @@ namespace ObjectOrientedPractics.View.Tabs
             this.MainSplitContainer.Panel2.BackColor = System.Drawing.Color.White;
             this.MainSplitContainer.Panel2.Controls.Add(this.SecondarySplitContainer);
             this.MainSplitContainer.Panel2MinSize = 200;
-            this.MainSplitContainer.Size = new System.Drawing.Size(786, 533);
-            this.MainSplitContainer.SplitterDistance = 321;
+            this.MainSplitContainer.Size = new System.Drawing.Size(812, 533);
+            this.MainSplitContainer.SplitterDistance = 331;
             this.MainSplitContainer.TabIndex = 4;
             // 
             // SecondarySplitContainer
@@ -149,17 +147,30 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // SecondarySplitContainer.Panel1
             // 
+            this.SecondarySplitContainer.Panel1.Controls.Add(this.addressControl1);
             this.SecondarySplitContainer.Panel1.Controls.Add(this.SelectedCustomerLabel);
             this.SecondarySplitContainer.Panel1.Controls.Add(this.FullNameLabel);
             this.SecondarySplitContainer.Panel1.Controls.Add(this.IdTextBox);
             this.SecondarySplitContainer.Panel1.Controls.Add(this.FullNameTextBox);
             this.SecondarySplitContainer.Panel1.Controls.Add(this.IdLabel);
-            this.SecondarySplitContainer.Panel1.Controls.Add(this.AddressTextBox);
-            this.SecondarySplitContainer.Panel1.Controls.Add(this.AddressLabel);
             this.SecondarySplitContainer.Panel1MinSize = 200;
-            this.SecondarySplitContainer.Size = new System.Drawing.Size(461, 533);
-            this.SecondarySplitContainer.SplitterDistance = 200;
+            this.SecondarySplitContainer.Size = new System.Drawing.Size(477, 533);
+            this.SecondarySplitContainer.SplitterDistance = 299;
             this.SecondarySplitContainer.TabIndex = 9;
+            // 
+            // addressControl1
+            // 
+            address1.Apartment = "";
+            address1.Building = "";
+            address1.City = "";
+            address1.Country = "";
+            address1.Index = 100000;
+            address1.Street = "";
+            this.addressControl1.Address = address1;
+            this.addressControl1.Location = new System.Drawing.Point(6, 83);
+            this.addressControl1.Name = "addressControl1";
+            this.addressControl1.Size = new System.Drawing.Size(468, 133);
+            this.addressControl1.TabIndex = 9;
             // 
             // SelectedCustomerLabel
             // 
@@ -182,10 +193,8 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             // IdTextBox
             // 
-            this.IdTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.IdTextBox.Location = new System.Drawing.Point(68, 31);
             this.IdTextBox.Name = "IdTextBox";
-            this.IdTextBox.ReadOnly = true;
             this.IdTextBox.Size = new System.Drawing.Size(122, 20);
             this.IdTextBox.TabIndex = 0;
             // 
@@ -195,7 +204,7 @@ namespace ObjectOrientedPractics.View.Tabs
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FullNameTextBox.Location = new System.Drawing.Point(68, 57);
             this.FullNameTextBox.Name = "FullNameTextBox";
-            this.FullNameTextBox.Size = new System.Drawing.Size(390, 20);
+            this.FullNameTextBox.Size = new System.Drawing.Size(406, 20);
             this.FullNameTextBox.TabIndex = 7;
             this.FullNameTextBox.TextChanged += new System.EventHandler(this.FullNameTextBox_TextChanged);
             // 
@@ -208,34 +217,13 @@ namespace ObjectOrientedPractics.View.Tabs
             this.IdLabel.TabIndex = 2;
             this.IdLabel.Text = "ID:";
             // 
-            // AddressTextBox
-            // 
-            this.AddressTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddressTextBox.Location = new System.Drawing.Point(68, 83);
-            this.AddressTextBox.Multiline = true;
-            this.AddressTextBox.Name = "AddressTextBox";
-            this.AddressTextBox.Size = new System.Drawing.Size(390, 114);
-            this.AddressTextBox.TabIndex = 4;
-            this.AddressTextBox.TextChanged += new System.EventHandler(this.AddressTextBox_TextChanged);
-            // 
-            // AddressLabel
-            // 
-            this.AddressLabel.AutoSize = true;
-            this.AddressLabel.Location = new System.Drawing.Point(3, 86);
-            this.AddressLabel.Name = "AddressLabel";
-            this.AddressLabel.Size = new System.Drawing.Size(48, 13);
-            this.AddressLabel.TabIndex = 3;
-            this.AddressLabel.Text = "Address:";
-            // 
             // CustomersTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.MainSplitContainer);
             this.Name = "CustomersTab";
-            this.Size = new System.Drawing.Size(786, 533);
+            this.Size = new System.Drawing.Size(812, 533);
             this.ButtonsTableLayout.ResumeLayout(false);
             this.MainSplitContainer.Panel1.ResumeLayout(false);
             this.MainSplitContainer.Panel1.PerformLayout();
@@ -260,11 +248,10 @@ namespace ObjectOrientedPractics.View.Tabs
         private System.Windows.Forms.SplitContainer MainSplitContainer;
         private System.Windows.Forms.Label FullNameLabel;
         private System.Windows.Forms.TextBox FullNameTextBox;
-        private System.Windows.Forms.TextBox AddressTextBox;
-        private System.Windows.Forms.Label AddressLabel;
         private System.Windows.Forms.Label IdLabel;
         private System.Windows.Forms.Label SelectedCustomerLabel;
         private System.Windows.Forms.TextBox IdTextBox;
         private System.Windows.Forms.SplitContainer SecondarySplitContainer;
+        private AddressControl addressControl1;
     }
 }

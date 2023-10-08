@@ -22,6 +22,7 @@
         /// <summary>
         /// Создаёт экземпляр класса <see cref="IdGenerator"/>
         /// </summary>
+        /// <param name="currentId"><see cref="_id">Начальный номер идентификатора</see></param>
         public IdGenerator()
         {
             _id = 0;

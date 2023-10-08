@@ -7,7 +7,6 @@ namespace ObjectOrientedPractics.Model
     /// </summary>
     class Item
     {
-         public Category Category { get; set; } 
         /// <summary>
         /// Максимальный размер названия товара.
         /// </summary>
@@ -33,6 +32,8 @@ namespace ObjectOrientedPractics.Model
         private string _info;
         private double _cost;
 
+        public Category Category { get; set; }
+
         /// <summary>
         /// Уникальный номер товара.
         /// </summary>
@@ -55,7 +56,8 @@ namespace ObjectOrientedPractics.Model
             }
             set
             {
-                ValueValidator.AssertStringOnLength(value, MaxNameLength, nameof(Name));
+                string propertyName = nameof(Name);
+                ValueValidator.AssertStringOnLength(value, MaxNameLength, propertyName);
                 _name = value;
             }
         }
@@ -71,7 +73,8 @@ namespace ObjectOrientedPractics.Model
             }
             set
             {
-                ValueValidator.AssertStringOnLength(value, MaxInfoLength, nameof(Info));
+                string propertyName = nameof(Info);
+                ValueValidator.AssertStringOnLength(value, MaxInfoLength, propertyName);
                 _info = value;
             }
         }
@@ -87,7 +90,8 @@ namespace ObjectOrientedPractics.Model
             }
             set
             {
-                ValueValidator.AssertDoubleOnRange(value, MinCost, MaxCost, nameof(Cost));
+                string propertyName = nameof(Cost);
+                ValueValidator.AssertDoubleOnRange(value, MinCost, MaxCost, propertyName);
                 _cost = value;
             }
         }
@@ -99,6 +103,7 @@ namespace ObjectOrientedPractics.Model
         /// <param name="info">Описание товара. Должно быть не больше <see cref="MaxInfoLength">MaxInfoLength</see> символов.</param>
         /// <param name="cost">Цена товара. Должна быть от <see cref="MinCost">MinCost</see> до <see cref="MaxCost">MaxCost</see>.
         /// <param name="id">Уникальный номер товара. Класс не проверяет уникальность номера</param>
+        /// <param name="category">Категория товара</param>
         public Item(string name, string info, double cost, int id, Category category)
         {
             Name = name;
@@ -108,6 +113,4 @@ namespace ObjectOrientedPractics.Model
             Category = category;
         }
     }
-
-
 }
