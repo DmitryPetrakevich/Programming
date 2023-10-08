@@ -137,6 +137,15 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
+        
+        private void CategoryComboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (ItemsListBox.SelectedItem != null)
+            {
+                ((Item)ItemsListBox.SelectedItem).Category = (Category)CategoryComboBox.SelectedItem;
+            }
+        }
+
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
         {
 

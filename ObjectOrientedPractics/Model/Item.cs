@@ -7,7 +7,7 @@ namespace ObjectOrientedPractics.Model
     /// </summary>
     class Item
     {
-        Category Category { get; set; } 
+         public Category Category { get; set; } 
         /// <summary>
         /// Максимальный размер названия товара.
         /// </summary>

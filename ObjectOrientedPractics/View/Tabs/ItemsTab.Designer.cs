@@ -38,6 +38,8 @@ namespace ObjectOrientedPractics.View.Tabs
             this.RemoveButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.CategoryLabel = new System.Windows.Forms.Label();
+            this.CategoryComboBox = new System.Windows.Forms.ComboBox();
             this.CostLabel = new System.Windows.Forms.Label();
             this.CostTextBox = new System.Windows.Forms.TextBox();
             this.DescriptionTextBox = new System.Windows.Forms.TextBox();
@@ -47,8 +49,6 @@ namespace ObjectOrientedPractics.View.Tabs
             this.IdLabel = new System.Windows.Forms.Label();
             this.SelectedItemLabel = new System.Windows.Forms.Label();
             this.IdTextBox = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.CategoryLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -143,7 +143,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.White;
             this.splitContainer1.Panel2.Controls.Add(this.CategoryLabel);
-            this.splitContainer1.Panel2.Controls.Add(this.comboBox1);
+            this.splitContainer1.Panel2.Controls.Add(this.CategoryComboBox);
             this.splitContainer1.Panel2.Controls.Add(this.CostLabel);
             this.splitContainer1.Panel2.Controls.Add(this.CostTextBox);
             this.splitContainer1.Panel2.Controls.Add(this.DescriptionTextBox);
@@ -159,6 +159,23 @@ namespace ObjectOrientedPractics.View.Tabs
             this.splitContainer1.SplitterDistance = 444;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 3;
+            // 
+            // CategoryLabel
+            // 
+            this.CategoryLabel.AutoSize = true;
+            this.CategoryLabel.Location = new System.Drawing.Point(-4, 111);
+            this.CategoryLabel.Name = "CategoryLabel";
+            this.CategoryLabel.Size = new System.Drawing.Size(62, 16);
+            this.CategoryLabel.TabIndex = 10;
+            this.CategoryLabel.Text = "Category";
+            // 
+            // CategoryComboBox
+            // 
+            this.CategoryComboBox.FormattingEnabled = true;
+            this.CategoryComboBox.Location = new System.Drawing.Point(68, 111);
+            this.CategoryComboBox.Name = "CategoryComboBox";
+            this.CategoryComboBox.Size = new System.Drawing.Size(121, 24);
+            this.CategoryComboBox.TabIndex = 9;
             // 
             // CostLabel
             // 
@@ -188,7 +205,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.DescriptionTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.DescriptionTextBox.Multiline = true;
             this.DescriptionTextBox.Name = "DescriptionTextBox";
-            this.DescriptionTextBox.Size = new System.Drawing.Size(626, 97);
+            this.DescriptionTextBox.Size = new System.Drawing.Size(625, 97);
             this.DescriptionTextBox.TabIndex = 6;
             this.DescriptionTextBox.TextChanged += new System.EventHandler(this.DescriptionTextBox_TextChanged);
             // 
@@ -211,7 +228,7 @@ namespace ObjectOrientedPractics.View.Tabs
             this.NameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.NameTextBox.Multiline = true;
             this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(626, 101);
+            this.NameTextBox.Size = new System.Drawing.Size(625, 101);
             this.NameTextBox.TabIndex = 4;
             this.NameTextBox.TextChanged += new System.EventHandler(this.NameTextBox_TextChanged);
             // 
@@ -256,23 +273,6 @@ namespace ObjectOrientedPractics.View.Tabs
             this.IdTextBox.Size = new System.Drawing.Size(161, 22);
             this.IdTextBox.TabIndex = 0;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(68, 111);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 9;
-            // 
-            // CategoryLabel
-            // 
-            this.CategoryLabel.AutoSize = true;
-            this.CategoryLabel.Location = new System.Drawing.Point(-4, 111);
-            this.CategoryLabel.Name = "CategoryLabel";
-            this.CategoryLabel.Size = new System.Drawing.Size(62, 16);
-            this.CategoryLabel.TabIndex = 10;
-            this.CategoryLabel.Text = "Category";
-            // 
             // ItemsTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -310,6 +310,6 @@ namespace ObjectOrientedPractics.View.Tabs
         private System.Windows.Forms.TextBox IdTextBox;
         private Button RemoveButton;
         private Label CategoryLabel;
-        private ComboBox comboBox1;
+        private ComboBox CategoryComboBox;
     }
 }
