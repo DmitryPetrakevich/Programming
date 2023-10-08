@@ -136,5 +136,20 @@ namespace ObjectOrientedPractics.View.Tabs
                 DescriptionTextBox.Text = ((Item)ItemsListBox.SelectedItem).Info;
             }
         }
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void ItemsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DescriptionLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
