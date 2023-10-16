@@ -38,7 +38,7 @@ namespace ObjectOrientedPractics.Model
             }
             set
             {
-                string propertyName = nameof(Fullname); // получение имени свойства
+                string propertyName = nameof(Fullname); 
                 ValueValidator.AssertStringOnLength(value, MaxFullname, propertyName);
                 _fullname = value;
             }

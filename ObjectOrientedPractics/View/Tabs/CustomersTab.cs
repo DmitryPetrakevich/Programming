@@ -37,8 +37,8 @@ namespace ObjectOrientedPractics.View.Tabs
             set
             {
                 _customers = value;
-                binding.DataSource = _customers; // связка биндера и списка покупателей
-                binding.ResetBindings(false); // обновление данных в ListBox
+                binding.DataSource = _customers; 
+                binding.ResetBindings(false); 
             }
         }
 
@@ -47,15 +47,15 @@ namespace ObjectOrientedPractics.View.Tabs
             InitializeComponent();
 
             _customers = new List<Customer>();
-            binding = new BindingSource(); // создание экземпляра биндера
+            binding = new BindingSource(); 
 
             idGenerator = new IdGenerator();
-            binding.DataSource = _customers; // связка биндера и списка покупателей
+            binding.DataSource = _customers; 
 
-            CustomersListBox.DataSource = binding; // связка ListBox и биндера
+            CustomersListBox.DataSource = binding; 
             CustomersListBox.DisplayMember = "Fullname";
             CustomersListBox.ValueMember = "Id";
-            binding.ResetBindings(false); // обновление данных в ListBox при помощи биндера
+            binding.ResetBindings(false); 
 
         }
 
@@ -74,9 +74,9 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void RemoveButton_Click(object sender, EventArgs e)
         {
-            if (CustomersListBox.SelectedItem != null) // если выбран покупатель в ListBox
+            if (CustomersListBox.SelectedItem != null) 
             {
-                _customers.RemoveAt(CustomersListBox.SelectedIndex); // удалить его по индексу
+                _customers.RemoveAt(CustomersListBox.SelectedIndex); 
                 binding.ResetBindings(false);
             }
         }
@@ -86,8 +86,8 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void CustomersListBox_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (CustomersListBox.SelectedValue != null) // если выбран покупатель в ListBox
-            {                                           // копирование данных в текстбоксы
+            if (CustomersListBox.SelectedValue != null) 
+            {                                           
                 IdTextBox.Text = ((Customer)CustomersListBox.SelectedItem).Id.ToString(); 
                 FullNameTextBox.Text = ((Customer)CustomersListBox.SelectedItem).Fullname;
                 addressControl1.Address = ((Customer)CustomersListBox.SelectedItem).Address;
@@ -103,8 +103,8 @@ namespace ObjectOrientedPractics.View.Tabs
 
             try // алгоритм подсветки текстбокса при вводе невалидных данных
             {
-                if (CustomersListBox.SelectedValue != null) // при валидных вводных даных записывает их в 
-                {                                           // выбранного пользователя 
+                if (CustomersListBox.SelectedValue != null) 
+                {                                          
                     ((Customer)CustomersListBox.SelectedItem).Fullname = FullNameTextBox.Text; 
                 }
                 FullNameTextBox.BackColor = Color.White;

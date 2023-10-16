@@ -1,6 +1,8 @@
-﻿
-namespace ObjectOrientedPractics.Model
+﻿namespace ObjectOrientedPractics.Model
 {
+    /// <summary>
+    /// Хранит значения категорий товара.
+    /// </summary>
 	enum Category
 	{
         Clothes,
