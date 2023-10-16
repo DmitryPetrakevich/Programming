@@ -3,6 +3,10 @@ namespace ObjectOrientedPractics.Model
 {
 	enum Category
 	{
-        NIGGERS
+        Clothes,
+        Electronics,
+        Toys,
+        Furniture,
+        Health
     }
 }
