@@ -64,7 +64,7 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void AddButon_Click(object sender, EventArgs e)
         {
-            _customers.Add(new Customer("Placeholder", new Address(), idGenerator.GetNextId()));
+            _customers.Add(new Customer("Placeholder",idGenerator.GetNextId()));
             binding.ResetBindings(false);
             CustomersListBox.SelectedIndex = _customers.Count - 1;
         }

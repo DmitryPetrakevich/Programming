@@ -14,7 +14,7 @@ namespace ObjectOrientedPractics.Model
 
         private readonly int _id;
         private string _fullname;
-        private Address _address;
+        private Address _address = new Address();
 
         /// <summary>
         /// Уникальный идентификатор покупателя.
@@ -66,10 +66,9 @@ namespace ObjectOrientedPractics.Model
         /// <param name="address">Адрес покупателя. Должно быть экземпляром класса 
         ///     <see cref="ObjectOrientedPractics.Model.Address">Address</see>.</param>
         /// <param name="id">Уникальный идентификатор покупателя. Класс не проверяет уникальность идентификатора.</param>
-        public Customer(string fullname, Address address, int id)
+        public Customer(string fullname, int id)
         {
             Fullname = fullname;
-            Address = address;
             _id = id;
         }
     }
